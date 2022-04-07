@@ -3,14 +3,12 @@
 //  WordLists.java
 //
 //  Class to aid with Scrabble
-//  Programming Project 5, COMS W1004
 //
 //
 //  Your Name: David Gabriel Millares Bellido
-//  Your Uni: DGM2148
 //  
 //  Coded by DGM148, skeleton and instructions provided by 
-//  1004 teaching staff.
+//  COMSW1004 teaching staff.
 //**************************************
 
 import java.util.ArrayList;
