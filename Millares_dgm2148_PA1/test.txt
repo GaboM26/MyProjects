@@ -1,0 +1,369 @@
+TEST CASES:
+----------------------------------------------------------------------
+TEST CASE 1|
+-----------
+Server:
+python3 ChatApp.py -s  2626
+>>> Initializing Server...
+Server Online - IP:  10.150.0.3  - Port Number:  2626
+The server is ready to receive
+registration request from: 10.150.0.3
+SUCCESS
+registration request from: 10.150.0.3
+SUCCESS
+registration request from: 10.150.0.3
+SUCCESS
+^C[SERVER GOING OFFLINE]
+
+Client 1:
+python3 ChatApp.py -c Tom 10.150.0.3 2626 2900
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  [Table Updated]
+>>>[Table Updated]
+>>>help
+.- send <name> <message> : sends <message> to <name>
+.- send_all <message> : sends <message> to all clients
+.- dereg <name> : deregisters you from list and exits
+.- users : shows all online users
+>>>  send Joe hey
+>>>[Message received by Joe .]
+>>>  send Bob hey
+>>>[Message received by Bob .]
+>>>  send Tom hey
+>>>[Message received by Tom .]
+>>> Tom : hey
+>>>  Joe : heyooo
+>>>Bob : heyyy!!!
+>>>^C[Silent Leave]
+>>>[Goodbye]
+
+Client 2:
+python3 ChatApp.py -c Joe 10.150.0.3 2626 2361
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  [Table Updated]
+>>>Tom : hey
+>>>send Tom heyooo
+>>>[Message received by Tom .]
+>>>  send Bob heyoo
+>>>[Message received by Bob .]
+>>>  send Joe heyyooooo
+>>>[Message received by Joe .]
+>>> Joe : heyyooooo
+>>>  Bob : heyy!!!!
+>>>^C[Silent Leave]
+>>>[Goodbye]
+
+Client 3:
+python3 ChatApp.py -c Bob 10.150.0.3 2626 2802 
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  Tom : hey
+>>>Joe : heyoo
+>>>send Tom heyyy!!!
+>>>[Message received by Tom .]
+>>>  send Joe heyy!!!!
+>>>[Message received by Joe .]
+>>>  send Bob heyyyy!!!!
+>>>[Message received by Bob .]
+>>> Bob : heyyyy!!!!
+>>>  ^C[Silent Leave]      
+>>>[Goodbye]
+---------------------------------------------------------------
+Test Case 2|
+------------
+Server:
+python3 ChatApp.py -s  2626
+>>> Initializing Server...
+Server Online - IP:  10.150.0.3  - Port Number:  2626
+The server is ready to receive
+registration request from: 10.150.0.3
+SUCCESS
+registration request from: 10.150.0.3
+SUCCESS
+deregistration request from: 10.150.0.3
+SUCCESS
+^C[SERVER GOING OFFLINE]
+
+Client 1:
+python3 ChatApp.py -c Tom 10.150.0.3 2626 2900 
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  [Table Updated]
+>>>[Table Updated]
+>>>users    
+Tom is Online
+Joe is Offline
+>>>  send Joe are you offline?
+>>>Server may be offline
+>>>Couldn't deliver message
+
+Client 2:
+python3 ChatApp.py -c Joe 10.150.0.3 2626 2361
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  dereg cli2
+Error: you can only de-register yourself, Joe
+>>>  dereg Joe
+>>>[You are Offline. Bye.]
+>>>
+
+---------------------------------------------------------
+Test Case 3|
+-----------
+Server:
+python3 ChatApp.py -s  2626
+>>> Initializing Server...
+Server Online - IP:  10.150.0.3  - Port Number:  2626
+The server is ready to receive
+registration request from: 10.150.0.3
+SUCCESS
+registration request from: 10.150.0.3
+SUCCESS
+registration request from: 10.150.0.3
+SUCCESS
+Chat All request from 10.150.0.3
+^C[SERVER GOING OFFLINE]
+
+Client 1:
+python3 ChatApp.py -c Tom 10.150.0.3 2626 2900
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  [Table Updated]
+>>>[Table Updated]
+>>>send_all Welcome my friends
+>>>[Message received by Server.]
+>>>  ^C[Silent Leave]
+>>>[Goodbye]
+
+Client 2:
+python3 ChatApp.py -c Joe 10.150.0.3 2626 2361
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  [Table Updated]
+>>>Channel_Message Tom: Welcome my friends
+>>>help
+.- send <name> <message> : sends <message> to <name>
+.- send_all <message> : sends <message> to all clients
+.- dereg <name> : deregisters you from list and exits
+.- users : shows all online users
+>>>  users
+Tom is Online
+Joe is Online
+Bob is Online
+>>>  send Tom bro
+>>>[No ACK from Tom , message sent to server.]
+>>>Server may be offline
+>>>Couldn't deliver message
+
+Client 3:
+python3 ChatApp.py -c Bob 10.150.0.3 2626 2802
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  Channel_Message Tom: Welcome my friends
+>>>dereg cli3
+Error: you can only de-register yourself, Bob
+>>>  dereg Bob
+>>>[Server not responding]
+>>>[Exiting]
+---------------------------------------------------
+My Test Cases:
+------------------------------------------------------
+Send All and normal messages in offline chat|
+--------------------------------------------
+Server:
+python3 ChatApp.py -s  2626
+>>> Initializing Server...
+Server Online - IP:  10.150.0.3  - Port Number:  2626
+The server is ready to receive
+registration request from: 10.150.0.3
+SUCCESS
+registration request from: 10.150.0.3
+SUCCESS
+registration request from: 10.150.0.3
+SUCCESS
+deregistration request from: 10.150.0.3
+SUCCESS
+Offline chat request from 10.150.0.3
+SUCCESS
+Chat All request from 10.150.0.3
+Offline chat request from 10.150.0.3
+SUCCESS
+Reregistration request from 10.150.0.3
+SUCCESS
+Chat All request from 10.150.0.3
+deregistration request from: 10.150.0.3
+SUCCESS
+^C[SERVER GOING OFFLINE]
+
+Client 1:
+python3 ChatApp.py -c Tom 10.150.0.3 2626 2900
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  [Table Updated]
+>>>[Table Updated]
+>>>dereg Tom
+>>>[You are Offline. Bye.]
+>>>reg Tom
+>>>[Table Updated]
+>>>[You have messages]
+>>>Joe: <25/03/2022 19:15:45> hello my friend
+>>>>>>Channel_Message Joe: <25/03/2022 19:16:08>  Wanna go study computer networks?
+>>>Bob: <25/03/2022 19:16:22> Joe is weird
+[Welcome, You Are Registered]
+>>>  Channel_Message Joe: Evil :(
+>>>[Table Updated]
+>>>^C[Silent Leave]
+>>>[Goodbye]
+
+Client 2:
+python3 ChatApp.py -c Joe 10.150.0.3 2626 2361
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  [Table Updated]
+>>>[Table Updated]
+>>>send Tom hello my friend
+[Messages received by the server and saved]
+>>>>>>
+>>>  send_all Wanna go study computer networks?
+>>>[Message received by Server.]
+>>>  [Table Updated]
+>>>send_all Evil :(
+>>>[Message received by Server.]
+>>>  dereg Joe
+>>>[You are Offline. Bye.]
+>>>^C[Silent Leave]
+>>>[Goodbye]
+
+Client 3:
+python3 ChatApp.py -c Bob 10.150.0.3 2626 2802 
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  [Table Updated]
+>>>Channel_Message Joe: Wanna go study computer networks?
+>>>send Tom Joe is weird
+[Messages received by the server and saved]
+>>>>>>  [Table Updated]
+>>>Channel_Message Joe: Evil :(
+>>>[Table Updated]
+>>>users
+Tom is Online
+Joe is Offline
+Bob is Online
+>>>  ^C[Silent Leave]
+>>>[Goodbye]
+----------------------------------------------------------------------
+Server figuring out client left (cli2 leaves with dereg, cli3 doesnt)|
+----------------------------------------------------------------------
+server:
+python3 ChatApp.py -s  2626
+>>> Initializing Server...
+Server Online - IP:  10.150.0.3  - Port Number:  2626
+The server is ready to receive
+registration request from: 10.150.0.3
+SUCCESS
+registration request from: 10.150.0.3
+SUCCESS
+registration request from: 10.150.0.3
+SUCCESS
+Chat All request from 10.150.0.3
+deregistration request from: 10.150.0.3
+SUCCESS
+Offline chat request from 10.150.0.3
+SUCCESS
+^C[SERVER GOING OFFLINE]
+
+Client 1:
+python3 ChatApp.py -c Tom 10.150.0.3 2626 2900
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  [Table Updated]
+>>>[Table Updated]
+>>>send_all goodbye friendos
+>>>[Message received by Server.]
+>>>  [Table Updated]
+>>>users
+Tom is Online
+Joe is Offline
+Bob is Online
+>>>  send Bob you still here?
+>>>[No ACK from Bob , message sent to server.]
+>>>  [Messages received by the server and saved]
+>>>[Table Updated]
+>>>users
+Tom is Online
+Joe is Offline
+Bob is Offline
+>>>  ^C[Silent Leave]
+>>>[Goodbye]
+
+Client 2:
+python3 ChatApp.py -c Joe 10.150.0.3 2626 2361
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  [Table Updated]
+>>>Channel_Message Tom: goodbye friendos
+>>>dereg Joe  
+>>>[You are Offline. Bye.]
+>>>^C[Silent Leave]
+>>>[Goodbye]
+
+Client 3:
+python3 ChatApp.py -c Bob 10.150.0.3 2626 2802
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  Channel_Message Tom: goodbye friendos
+>>>[Table Updated]
+>>>^C[Silent Leave]
+>>>[Goodbye]
+-----------------------------------------------------------------------
+EXTRA FUNCTIONALITY: Client logging back in |
+--------------------------------------------
+Server:
+python3 ChatApp.py -s  2626
+>>> Initializing Server...
+Server Online - IP:  10.150.0.3  - Port Number:  2626
+The server is ready to receive
+registration request from: 10.150.0.3
+SUCCESS
+deregistration request from: 10.150.0.3
+SUCCESS
+registration request from: 10.150.0.3
+FAILURE: MUST SEND REREG REQUEST
+Reregistration request from 10.150.0.3
+SUCCESS
+
+Client:
+python3 ChatApp.py -c Tom 10.150.0.3 2626 2900
+>>>Client Registered Succesfully
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>  dereg Tom
+>>>[You are Offline. Bye.]
+>>>^C[Silent Leave]
+>>>[Goodbye]
+
+dgm2148@csee4119-instance1:~/csee4119/pp1$ make cli1
+python3 ChatApp.py -c Tom 10.150.0.3 2626 2900
+>>>[Returning client: input reg <nick-name> to register again]
+>>>reg Tom
+
+>>>[Table Updated]
+>>>[Welcome, You Are Registered]
+>>>
+
