@@ -3,7 +3,6 @@
 //  WordTest.java
 //
 //  Test class for WordLists.java
-//  Programming Project 5, COMS W1004
 //
 //
 //  Your Name:David Gabriel Millares Bellido
