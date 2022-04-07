@@ -3,6 +3,11 @@ This was a Chat application project assigned in Computer Networks. It is a simpl
 registration, deregistration, chatting, offline chatting, and group chatting functionalities. It was written over Python3 in 
 a UNIX programming environment. 
 
+Español:
+Esta es una aplicación que realice en la clase de Networks de Computadoras. Es una aplicación de chat sencilla que corre sobre UDP
+y contiene funciones de registro, de-registro, chat, chat con usuarios desconectados, y una función de chat grupal. Todo fue escrito
+con python3 en un ambiente de programación que emplea un sistema operativo UNIX. 
+
 -------------------------------------------------------------
 Programming Project 1 - Simple Chat Application
 Name: David Gabriel Millares Bellido
