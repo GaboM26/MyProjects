@@ -1,15 +1,6 @@
-Sources: office hours
 WordLists readMe
 
 ***WordLists***
-Only three instance variables used. I copied the dictionary into an ArrayList
-because scanner will scan the whole file, get to the bottom, and then other
-methods that try and use the scan.hasNext method do not work. This is due
-to Scanner getting to the bottom of the dictionary.txt file and staying there
-(source: Deji's office hours). The fix for this is having an ArrayList with
-all the words and one can access all of them through an enhanced for loop. 
-All four required file names have the name of their respective method on them,
-but that can be changed.
 
 lengthN method: First checks if n is more than 0. A user could place a negative
 n, thus throwing a IllegalArgument exception, because there are no words with
