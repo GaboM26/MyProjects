@@ -1,5 +1,5 @@
 POKER GAME in Java - Juego de Poker en Java
-Made by/ Hecho por: David Gabriel Millares Bellido
+Made by / Hecho por: David Gabriel Millares Bellido
 
 English:
 This poker game implements a simple game that a user can play against the computer by interacting with the PokerTest File.
