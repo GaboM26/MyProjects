@@ -1,3 +1,8 @@
+English:
+This was a Chat application project assigned in Computer Networks. It is a simple chat application that runs over UDP which contains 
+registration, deregistration, chatting, offline chatting, and group chatting functionalities. It was written over Python3 in 
+a UNIX programming environment. 
+
 -------------------------------------------------------------
 Programming Project 1 - Simple Chat Application
 Name: David Gabriel Millares Bellido
