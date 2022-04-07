@@ -5,7 +5,6 @@ UNI: DGM2148
 -------------------------------------------------------------
 
 Command Line Instructions for compiling and running program:
-- JUST AS SPECIFIED IN RUBRIC
 - PROVIDING MAKEFILE FOR CONVENIENCE IN TESTING
 FOR SERVER: 
 - python3 ChatApp.py -s <port-number>
